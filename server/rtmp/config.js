@@ -11,6 +11,11 @@ const config = {
         mediaroot: './media',
         allow_origin: '*'
     },
+    auth: {
+        api : true,
+        api_user: 'admin',
+        api_pass: 'admin',
+    },
     trans: {
         ffmpeg: 'C:/hls/ffmpeg-20190425-1ae5a64-win64-static/bin/ffmpeg.exe',
         tasks: [
