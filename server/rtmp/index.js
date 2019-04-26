@@ -3,12 +3,11 @@ var config = require('./config');
 var rimraf = require("rimraf");
 var nms = new NodeMediaServer(config);
 nms.on('preConnect', (id, args) => {
-    if (args.tcUrl.indexOf('127.0.0.1') >= 0){
-        let session = nms.getSession(id);
-        session.reject();
-    }
+    console.log(args);
 });
-nms.on('doneConnect', (id, args) => {
-    console.log('[NodeEvent on doneConnect]', `id=${id} args=${JSON.stringify(args)}`);
+nms.on('donePublish', (id, args) => {
+    //console.log(args);
+    //rimraf("./media", function () { console.log("done"); });
 });
+setInterval(()=>console.log(new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds()),1000);
 nms.run();
